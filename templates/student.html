@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Student Dashboard</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Welcome Student</h2>
+        <p>Manage hostel activities using AI Hostel Management System.</p>
+    </div>
+
+    <div class="card">
+        <a href="/attendance">
+            <button>Mark Attendance</button>
+        </a>
+
+        <a href="/complaint">
+            <button>Submit Complaint</button>
+        </a>
+
+        <a href="/mess">
+            <button>Mess Feedback</button>
+        </a>
+        </div>
+
+    <div class="card">
+        <h2>Student Features</h2>
+
+        <ul>
+            <li>AI Face Recognition Entry</li>
+            <li>Attendance Tracking</li>
+            <li>Mess Food Review</li>
+            <li>Complaint Analysis</li>
+            <li>Room Information</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

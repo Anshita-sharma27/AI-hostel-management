@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mess Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Mess Feedback Analysis</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Submit Feedback</h2>
+
+        <form method="POST">
+
+            <input type="text"
+                   name="student"
+                   placeholder="Student Name"
+                   required>
+
+            <textarea name="feedback"
+                      placeholder="Enter Mess Feedback..."
+                      required>
+            </textarea>
+
+            <button type="submit">
+                Submit Feedback
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Feedback Records</h2>
+
+        <table>
+
+            <tr>
+                <th>Student</th>
+                <th>Feedback</th>
+                <th>Sentiment</th>
+            </tr>
+
+            {% for f in feedbacks %}
+
+            <tr>
+                <td>{{ f.student }}</td>
+                <td>{{ f.feedback }}</td>
+                <td>{{ f.sentiment }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

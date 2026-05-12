@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .card{
+            background:#1e293b;
+            padding:20px;
+            margin:20px;
+            border-radius:15px;
+            color:white;
+        }
+
+        input, button{
+            padding:10px;
+            margin:5px;
+            width:90%;
+            border-radius:8px;
+            border:none;
+        }
+
+        button{
+            background:#38bdf8;
+            color:white;
+            cursor:pointer;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:10px;
+        }
+
+        th,td{
+            border:1px solid #38bdf8;
+            padding:8px;
+        }
+
+        th{
+            background:#0f172a;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+</header>
+
+<div class="container">
+
+<!-- 🔥 ADD STUDENT WITH FACE -->
+<div class="card">
+
+    <h2>Add Student + Face Register</h2>
+
+    <form method="POST" action="/add_student_face" enctype="multipart/form-data">
+
+        <input type="text" name="name" placeholder="Student Name" required>
+
+        <input type="text" name="room" placeholder="Room Number" required>
+
+        <input type="text" name="department" placeholder="Department" required>
+
+        <input type="file" name="image" accept="image/*" required>
+
+        <button type="submit">Add Student + Face</button>
+
+    </form>
+
+</div>
+
+<!-- STUDENTS -->
+<div class="card">
+
+    <h2>Students</h2>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Room</th>
+            <th>Department</th>
+        </tr>
+
+        {% for s in students %}
+        <tr>
+            <td>{{ s.name }}</td>
+            <td>{{ s.room }}</td>
+            <td>{{ s.department }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+<!-- COMPLAINTS -->
+<div class="card">
+
+    <h2>Complaints</h2>
+
+    <table>
+        <tr>
+            <th>Student</th>
+            <th>Complaint</th>
+            <th>Category</th>
+            <th>Status</th>
+        </tr>
+
+        {% for c in complaints %}
+        <tr>
+            <td>{{ c.student }}</td>
+            <td>{{ c.complaint }}</td>
+            <td>{{ c.category }}</td>
+            <td>{{ c.status }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+<!-- ATTENDANCE -->
+<div class="card">
+
+    <h2>Attendance Records</h2>
+
+    <table>
+        <tr>
+            <th>Student</th>
+            <th>Time</th>
+        </tr>
+
+        {% for a in attendance %}
+        <tr>
+            <td>{{ a.student }}</td>
+            <td>{{ a.time }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</div>
+
+</body>
+</html>

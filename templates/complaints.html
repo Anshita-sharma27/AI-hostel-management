@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complaint Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Complaint Management System</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Submit Complaint</h2>
+
+        <form method="POST">
+
+            <input type="text"
+                   name="student"
+                   placeholder="Student Name"
+                   required>
+
+            <textarea name="complaint"
+                      placeholder="Write Complaint Here..."
+                      required>
+            </textarea>
+
+            <button type="submit">
+                Submit Complaint
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Complaint Records</h2>
+
+        <table>
+
+            <tr>
+                <th>Student</th>
+                <th>Complaint</th>
+                <th>Category</th>
+                <th>Status</th>
+            </tr>
+
+            {% for c in complaints %}
+
+            <tr>
+                <td>{{ c.student }}</td>
+                <td>{{ c.complaint }}</td>
+                <td>{{ c.category }}</td>
+                <td>{{ c.status }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
