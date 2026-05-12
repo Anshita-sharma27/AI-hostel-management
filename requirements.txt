@@ -4,3 +4,4 @@ face_recognition
 numpy
 pandas
 sqlite3
+gunicorn
